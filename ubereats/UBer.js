@@ -5,8 +5,8 @@
   var url = prompt("\
 Welcome to UBer v4.11\n\
 enter url, the one already there is Google. make sure to start with http://, https://, or //.\n\
-OR enter 'p' to go to a proxy site.\n\n\n\
--luphoria",
+OR enter 'p' to go to a proxy site. It is encouraged to use that, as some websites do not let you iframe it (or something, corrosion is different from elixir) so please iframe (or something) https://agent-gamer-cool-thing.474652.workers.dev\n\n\n\
+-luphoria, brought to you by INSERT-TEXT-HERE",
     placeholder = "//www.google.com/?igu=1") /* google with flag used by agoogleaday -- allows google.com for cross-origin iframe */
   if (url == "p") {
     /* if user inputs "p" instead of a url */
