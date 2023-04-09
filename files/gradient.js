@@ -12,6 +12,10 @@ const textList = [
   "Go Touch Grass",
   "outdoorschool",
   "Crazygird=Gamign",
+    "why did school block my thingie",
+  "this is made using html mostly",
+  "minecraft from yexex, made by luphoria",
+  "stop clicking me",
 ];
 const dadJokes = [
   "what did the mathmatician say to his insurance company when he got into a car accident?",
