@@ -51,10 +51,7 @@ document.head.appendChild(script);">Copy</button>
                             <p> This code lets you inspect stuff. Kinda one-time use tho so you might want to bookmarklet it.</p>
                     <button class="copy-button" data-code="javascript:(function () {var script=document.createElement('script');script.src='https://x-ray-goggles.mouse.org/webxray.js';script.className='webxray';script.setAttribute('data-lang','en-US');script.setAttribute('data-baseuri','https://x-ray-goggles.mouse.org');document.body.appendChild(script);}())
 ">Copy</button>                 
-                <h2>Edit a website</h2>
-                    <p>this is different than inspect, because it basically makes everything google docs.</p>
-            <button class="copy-button" data-code="document.body.contentEditable = 'true'; document.designMode='on'; void 0
-">Copy</button>             
+           
                 <h2>TAB CLOAKER</h2>
             <p>Type in javascript: and paste in this code to cloak the tab. Will not change tab itself, just the tab bar name and favicon.</p>
             <p>Here are a few of the tab cloakers, using many commonly used websites, like canvas, sora, and others like it.<p>
@@ -84,6 +81,10 @@ const c=prompt('Do you want to encode or decode a string? (Enter "encode" or "de
                                 <p>This code can invert all colours, making it look like a dark mode thing.</p>
                     <button class="copy-button" data-code="(function() { var css = 'html {-webkit-filter: invert(100%);' + '-moz-filter: invert(100%);' + '-o-filter: invert(100%);' + '-ms-filter: invert(100%); }', head = document.getElementsByTagName('head')[0], style = document.createElement('style'); if (!window.counter) { window.counter = 1; } else { window.counter++; if (window.counter % 2 == 0) { var css = 'html {-webkit-filter: invert(0%); -moz-filter: invert(0%); -o-filter: invert(0%); -ms-filter: invert(0%); }' } } style.type = 'text/css'; if (style.styleSheet) { style.styleSheet.cssText = css; } else { style.appendChild(document.createTextNode(css)); } head.appendChild(style); })();">Copy</button>               
         </div>
+                        <h2>Edit a website</h2>
+                    <p>this is different than inspect, because it basically makes everything google docs.</p>
+            <button class="copy-button" data-code="document.body.contentEditable = 'true'; document.designMode='on'; void 0
+">Copy</button>  
     </div>
     <script src="https://insert-website-here.github.io/files/app.js"></script>
     <script>
