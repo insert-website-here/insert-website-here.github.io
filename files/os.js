@@ -21,7 +21,7 @@
     const resizable = document.createElement('div');
     resizable.className = 'resizable';
 
-    const url = prompt('Enter URL:');
+    const url = prompt('Enter URL:, add https:// or no work');
     if (!url) {
       return;
     }
