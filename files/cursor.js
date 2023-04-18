@@ -58,7 +58,7 @@ document.addEventListener('mousemove', function(event) {
 });
 
 document.addEventListener('click', function(event) {
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 69; i++) {
     particles.push(new Particle(event.clientX, event.clientY));
   }
 });
