@@ -3,7 +3,7 @@
 ## they blocked the normal one so I made this 
 This is a website, and here we do many things
 - Create many cool/funny things
-- Aims to create a experiance that lets you go away from your normal browser and use this instead
+- Aims to create a experience that lets you go away from your normal browser and use this instead
 - Is honestly kinda cool
 - Has some funnies
 - Uses HTML, Javascript and CSS
