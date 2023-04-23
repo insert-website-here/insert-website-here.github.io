@@ -1,193 +1,97 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Michael OS</title>
-<link rel="shortcut icon" href="https://www.freepngimg.com/download/ubuntu/76011-icons-material-computer-operating-systems-ubuntu-icon.png" type="image/x-icon">
-<style>
-  /* Style the tab */
-.tab {
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 10px;
-  }
-  
-  .tab button {
-    background-color: inherit;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-    margin-right: 10px;
-  }
-  
-  .tab button:hover {
-    background-color: #ddd;
-  }
-  
-  .tab button.active {
-    background-color: #ccc;
-  }
-  
-  .tabcontent {
-    display: none;
-    padding: 0;
-    border: 1px solid #ccc;
-    border-top: none;
-    position: absolute;
-    top: 80px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-  }
-  
-  .tabcontent iframe {
-    width: 100%;
-    height: calc(100% - 80px);
-    border: none;
-  }
-  
-  .settings-menu {
-    display: none;
-    background-color: white;
-    border: 1px solid #ccc;
-    position: absolute;
-    top: 80px;
-    right: 0;
-    width: 300px;
-    padding: 20px;
-    z-index: 999;
-  }
-  
-  .settings-item {
-    margin-bottom: 10px;
-  }
-</style>
+	<title>Blocked</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		.tabs {
+			display: flex;
+			flex-wrap: wrap;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			position: relative;
+			z-index: 1;
+		}
+		.tabs li {
+			flex-grow: 1;
+		}
+		.tabs li a {
+			background-color: #ccc;
+			color: #fff;
+			display: block;
+			padding: 10px;
+			text-align: center;
+			text-decoration: none;
+			transition: background-color 0.3s ease;
+		}
+		.tabs li a:hover {
+			background-color: #555;
+		}
+		.tab-content {
+			display: none;
+			padding: 0;
+			position: absolute;
+			top: 40px;
+			left: 0;
+			height: calc(100% - 40px);
+			width: 100%;
+			z-index: 0;
+		}
+		.tab-content.active {
+			display: block;
+		}
+		.iframe-wrapper {
+			height: 100%;
+			width: 100%;
+			border: none;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: -1;
+		}
+	</style>
 </head>
 <body>
-<div class="tab">
-  <button onclick="newTab()">New Tab</button>
-  <button onclick="toggleSettingsMenu()">
-    <img src="https://cdn.iconscout.com/icon/free/png-256/apple-settings-1-493162.png?f=webp&w=256" alt="Settings" width="14" height="14">
-  </button>
-</div>
-<div id="settings-menu" class="settings-menu">
-  <div class="settings-item">
-    <label for="hotbar-color">Hotbar Color:</label>
-    <input type="color" id="hotbar-color">
-  </div>
-  <div class="settings-item">
-    <label for="proxy-url">placeholder</label>
-    <input type="text" id="proxy-url" placeholder="placeholder">
-  </div>
-  <div class="settings-item">
-    <label for="favicon-title">Website Title:</label>
-    <input type="text" id="favicon-title" oninput="updateFaviconTitle()">
-  </div>
-  <div class="settings-item">
-    <label for="favicon-title">Favicon (type url):</label>
-    <input type="text" id="favicon-url" oninput="updateFavicon()">
-  </div>
-</div>
-<div id="Tab1" class="tabcontent">
-  <iframe></iframe>
-</div>
-<script>
-  function openTab(evt, tabName) {
-    var i, tabcontent, tablinks;
-  
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-  
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-  
-    var tab = document.getElementById(tabName);
-    tab.style.display = "block";
-    evt.currentTarget.className += " active";
-  
-    var iframe = tab.querySelector("iframe");
-    if (!iframe.hasAttribute("src")) {
-      iframe.src = "https://insert-website-here.github.io/new/Michael/Michael.html";
-    }
-  }
-  
-  function newTab() {
-    var proxyUrlInput = document.getElementById('proxy-url');
-    var startingUrl = proxyUrlInput.value;
-  
-    var numTabs = document.getElementsByClassName("tablinks").length + 1;
-    var tabButton = document.createElement("button");
-    tabButton.className = "tablinks";
-    tabButton.innerHTML = "Tab " + numTabs;
-    tabButton.onclick = function () {
-      openTab(event, "Tab" + numTabs);
-    };
-  
-    var tabContent = document.createElement("div");
-    tabContent.id = "Tab" + numTabs;
-    tabContent.className = "tabcontent";
-    tabContent.innerHTML = "<iframe></iframe>";
-  
-    var tabDiv = document.getElementsByClassName("tab")[0];
-    tabDiv.insertBefore(tabButton, tabDiv.lastElementChild);
-    document.body.appendChild(tabContent);
-  
-    var iframe = tabContent.querySelector("iframe");
-    if (startingUrl) {
-      iframe.src = startingUrl;
-    } else {
-      iframe.src = 'https://insert-website-here.github.io/new/Michael/Michael.html';
-    }
-  }
-  
-  function toggleSettingsMenu() {
-    var settingsMenu = document.getElementById("settings-menu");
-    settingsMenu.style.display = settingsMenu.style.display === "block" ? "none" : "block";
-  }
-  
-  document.getElementById("hotbar-color").addEventListener("change", function (event) {
-    document.querySelector(".tab").style.backgroundColor = event.target.value;
-  });
-  
-  document.getElementById("favicon-title").addEventListener("input", function (event) {
-    document.title = event.target.value;
-  });
-  
-  document.getElementById("proxy-url").addEventListener("input", function (event) {
-    var newProxyUrl = event.target.value;
-    var tabcontents = document.getElementsByClassName("tabcontent");
-    for (var i = 0; i < tabcontents.length; i++) {
-      var iframe = tabcontents[i].querySelector("iframe");
-      if (!iframe.hasAttribute("src")) {
-        iframe.setAttribute("src", newProxyUrl);
-      }
-    }
-  });
-  
-  function updateFaviconTitle() {
-    var faviconTitleInput = document.getElementById('favicon-title');
-    var newTitle = faviconTitleInput.value;
-    document.title = newTitle;
-  };
-  
-  function updateFavicon() {
-    var faviconUrlInput = document.getElementById('favicon-url');
-    var faviconUrl = faviconUrlInput.value;
-    var link = document.querySelector("link[rel*='icon']") || document.createElement('link');
-    link.type = 'image/x-icon';
-    link.rel = 'shortcut icon';
-    link.href = faviconUrl;
-    document.getElementsByTagName('head')[0].appendChild(link);
-  };
-</script></body>
+	<ul class="tabs">
+		<li><a href="#tab1">1v1.lol</a></li>
+		<li><a href="#tab2">MK48.io</a></li>
+		<li><a href="#tab3">Taming.io</a></li>
+	</ul>
+
+	<div class="tab-content active" id="tab1">
+		<iframe class="iframe-wrapper" src="https://insert-website-here.github.io/new/Michael/1v1lol.html"></iframe>
+	</div>
+
+	<div class="tab-content" id="tab2">
+		<iframe class="iframe-wrapper" src="https://insert-website-here.github.io/new/Michael/mk48io.html"></iframe>
+	</div>
+
+	<div class="tab-content" id="tab3">
+		<iframe class="iframe-wrapper" src="https://insert-website-here.github.io/new/Michael/tamingio.html"></iframe>
+	</div>
+
+	<script>
+		const tabs = document.querySelectorAll('.tabs li a');
+		const tabContents = document.querySelectorAll('.tab-content');
+
+		tabs.forEach((tab, index) => {
+			tab.addEventListener('click', (e) => {
+				e.preventDefault();
+
+				// Remove active class from all tabs and tab contents
+				tabs.forEach((tab) => tab.classList.remove('active'));
+				tabContents.forEach((content) => content.classList.remove('active'));
+
+				// Add active class to clicked tab and corresponding tab content
+				tab.classList.add('active');
+				tabContents[index].classList.add('active');
+			});
+		});
+	</script>
+</body>
 </html>
