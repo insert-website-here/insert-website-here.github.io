@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blocked</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		.tabs {
+			display: flex;
+			flex-wrap: wrap;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			position: relative;
+			z-index: 1;
+		}
+		.tabs li {
+			flex-grow: 1;
+		}
+		.tabs li a {
+			background-color: #ccc;
+			color: #fff;
+			display: block;
+			padding: 10px;
+			text-align: center;
+			text-decoration: none;
+			transition: background-color 0.3s ease;
+		}
+		.tabs li a:hover {
+			background-color: #555;
+		}
+		.tab-content {
+			display: none;
+			padding: 0;
+			position: absolute;
+			top: 40px;
+			left: 0;
+			height: calc(100% - 40px);
+			width: 100%;
+			z-index: 0;
+		}
+		.tab-content.active {
+			display: block;
+		}
+		.iframe-wrapper {
+			height: 100%;
+			width: 100%;
+			border: none;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: -1;
+		}
+	</style>
+</head>
+<body>
+	<ul class="tabs">
+		<li><a href="#tab1">Cluster Rush</a></li>
+		<li><a href="#tab2">Idle Breakout</a></li>
+		<li><a href="#tab3">Space Company</a></li>
+		<li><a href="#tab4">Particle Clicker</a></li>
+		<li><a href="#tab5">Awesome Tanks</a></li>
+		<li><a href="#tab6">Precision Client</a></li>
+
+	</ul>
+
+	<div class="tab-content active" id="tab1">
+		<iframe class="iframe-wrapper" src="https://insert-website-here.github.io/g_mes/play/cluster-rush/"></iframe>
+	</div>
+
+	<div class="tab-content" id="tab2">
+		<iframe class="iframe-wrapper" src="https://insert-website-here.github.io/g_mes/play/idle-breakout/"></iframe>
+	</div>
+
+	<div class="tab-content" id="tab3">
+		<iframe class="iframe-wrapper" src="https://insert-website-here.github.io/g_mes/play/space-company/"></iframe>
+	</div>
+	<div class="tab-content" id="tab4">
+		<iframe class="iframe-wrapper" src="https://insert-website-here.github.io/g_mes/play/particle-clicker/"></iframe>
+	</div>
+	<div class="tab-content" id="tab5">
+		<iframe class="iframe-wrapper" src="https://insert-website-here.github.io/g_mes/awesome-tanks/"></iframe>
+	</div>
+    <div class="tab-content" id="tab6">
+		<iframe class="iframe-wrapper" src="https://insert-website-here.github.io/g_mes/precision-client/"></iframe>
+	</div>
+
+     
+	<script>
+		const tabs = document.querySelectorAll('.tabs li a');
+		const tabContents = document.querySelectorAll('.tab-content');
+
+		tabs.forEach((tab, index) => {
+			tab.addEventListener('click', (e) => {
+				e.preventDefault();
+
+				// Remove active class from all tabs and tab contents
+				tabs.forEach((tab) => tab.classList.remove('active'));
+				tabContents.forEach((content) => content.classList.remove('active'));
+
+				// Add active class to clicked tab and corresponding tab content
+				tab.classList.add('active');
+				tabContents[index].classList.add('active');
+			});
+		});
+	</script>
+</body>
+</html>
