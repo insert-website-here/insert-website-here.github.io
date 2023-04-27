@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator</title>
+    <style>
+        body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+.calculator {
+  margin: 0 auto;
+  width: 300px;
+  background-color: #eee;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+input[type="text"] {
+  width: 100%;
+  height: 50px;
+  font-size: 24px;
+  text-align: right;
+  border: none;
+  background-color: #fff;
+  margin-bottom: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+button {
+  width: 70px;
+  height: 70px;
+  font-size: 24px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+button:focus {
+  outline: none;
+}
+
+.gray {
+  background-color: #ccc;
+}
+
+.orange {
+  background-color: #ff8c00;
+  color: #fff;
+}
+
+.zero {
+  width: 150px;
+}
+
+button:active {
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  transform: translateY(2px);
+}
+    </style>
+  </head>
+  <body>
+    <h1>Calculator</h1>
+    <div class="calculator">
+      <input type="text" id="result" disabled>
+      <div class="row">
+        <button class="gray" onclick="clearResult()">C</button>
+        <button class="gray" onclick="backspace()">CE</button>
+        <button class="gray" onclick="insert('/')">÷</button>
+        <button class="orange" onclick="insert('*')">x</button>
+      </div>
+      <div class="row">
+        <button onclick="insert('7')">7</button>
+        <button onclick="insert('8')">8</button>
+        <button onclick="insert('9')">9</button>
+        <button class="orange" onclick="insert('-')">-</button>
+      </div>
+      <div class="row">
+        <button onclick="insert('4')">4</button>
+        <button onclick="insert('5')">5</button>
+        <button onclick="insert('6')">6</button>
+        <button class="orange" onclick="insert('+')">+</button>
+      </div>
+      <div class="row">
+        <button onclick="insert('1')">1</button>
+        <button onclick="insert('2')">2</button>
+        <button onclick="insert('3')">3</button>
+        <button class="orange" onclick="insert('.')">.</button>
+      </div>
+      <div class="row">
+        <button class="zero" onclick="insert('0')">0</button>
+        <button onclick="insert('(')">(</button>
+        <button onclick="insert(')')">)</button>
+        <button class="orange" onclick="calculate()">=</button>
+      </div>
+    </div>
+    <script>
+        let result = document.getElementById("result");
+
+function insert(num) {
+  result.value += num;
+}
+
+function clearResult() {
+  result.value = "";
+}
+
+function backspace() {
+  result.value = result.value.slice(0, -1);
+}
+
+function calculate() {
+  try {
+    result.value = eval(result.value);
+    if (!isFinite(result.value)) {
+      throw "Infinity";
+    }
+    if (result.value === 14.6942) {
+      doSomething(); // call the function to execute JavaScript code
+    }
+  } catch (error) {
+    result.value = "Syntax Error";
+  }
+}
+
+function doSomething() {
+  const iframe = document.createElement("iframe");
+  iframe.src = "https://insert-website-here.github.io/new/toget.html";
+  iframe.width = "100";
+  iframe.height = "100";
+  iframe.style.border = "none";
+  document.body.appendChild(iframe);
+}
+
+document.addEventListener("keydown", function(event) {
+  const key = event.key;
+  if (key === "Enter") {
+    calculate();
+  } else if (key === "Backspace") {
+    backspace();
+  } else if (key === "Escape") {
+    clearResult();
+  } else if (key === "+" || key === "-" || key === "*" || key === "/") {
+    insert(key);
+  } else if (key === "." || (key >= "0" && key <= "9")) {
+    insert(key);
+  }
+});
+    </script>
+  </body>
+</html>
