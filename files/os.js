@@ -60,7 +60,7 @@
 
   const executeButton = document.createElement('button');
   executeButton.id = 'executeButton';
-  executeButton.innerText = 'Execute Encoder';
+  executeButton.innerText = 'Create Encoder';
   controlPanel.appendChild(executeButton);
 
   const bookmarkButton = document.createElement('button');
