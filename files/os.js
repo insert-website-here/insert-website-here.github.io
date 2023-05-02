@@ -5,8 +5,29 @@
 .resizable iframe{display:block;width:100%;height:100%;border:none;}
 .resizer{width:10px;height:10px;position:absolute;right:0;bottom:0;background-color:red;cursor:se-resize;}
 .delete{position:absolute;top:-10px;right:-10px;background-color:red;color:white;padding:5px;cursor:pointer;border:none;border-radius:50%;}
-#toggleControlPanel{position:fixed;top:10px;left:10px;background-color:#4CAF50;color:white;padding:10px;cursor:pointer;border:none;border-radius:5px;opacity:0;width:0;height:0;overflow:hidden;}
-.bookmark {
+#toggleControlPanel {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#toggleControlPanel.visible {
+  opacity: 1;
+  width: auto;
+  height: auto;
+  overflow: visible;
+}.bookmark {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -44,6 +65,7 @@
   document.head.appendChild(style);
 
   const controlPanel = document.createElement('div');
+  controlPanel.id = 'controlPanel';
   controlPanel.style.position = 'fixed';
   controlPanel.style.top = '10px';
   controlPanel.style.right = '10px';
@@ -177,40 +199,45 @@
     if (!url) {
       return;
     }
-
+  
+    const bookmarkName = prompt('Enter a name for the bookmark:');
+    if (!bookmarkName) {
+      return;
+    }
+  
     const bookmark = document.createElement('div');
     bookmark.className = 'bookmark';
-
+  
     const title = document.createElement('span');
-    title.innerText = url;
+    title.innerText = bookmarkName;
     bookmark.appendChild(title);
-
+  
     const openButton = document.createElement('button');
     openButton.innerText = 'Open';
     openButton.addEventListener('click', () => {
       const resizable = document.createElement('div');
       resizable.className = 'resizable';
-
+  
       const iframe = document.createElement('iframe');
       iframe.src = url;
       resizable.appendChild(iframe);
-
+  
       const resizer = document.createElement('div');
       resizer.className = 'resizer';
       resizable.appendChild(resizer);
-
+  
       const deleteButton = document.createElement('button');
       deleteButton.className = 'delete';
       deleteButton.innerHTML = '&times;';
       resizable.appendChild(deleteButton);
-
+  
       document.body.appendChild(resizable);
       makeResizable(resizable, resizer);
       makeDraggable(resizable);
       makeDeletable(resizable, deleteButton);
     });
     bookmark.appendChild(openButton);
-
+  
     controlPanel.insertBefore(bookmark, bookmarkButton.nextSibling);
   }
 })();
