@@ -7,8 +7,8 @@
 .delete{position:absolute;top:-10px;right:-10px;background-color:red;color:white;padding:5px;cursor:pointer;border:none;border-radius:50%;}
 #toggleControlPanel {
   position: fixed;
-  top: 10px;
-  left: 10px;
+  top: 0px;
+  left: 0px;
   background-color: #4CAF50;
   color: white;
   padding: 10px;
@@ -16,8 +16,6 @@
   border: none;
   border-radius: 5px;
   opacity: 0;
-  width: 0;
-  height: 0;
   overflow: hidden;
   transition: opacity 0.3s ease-in-out;
 }
