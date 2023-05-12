@@ -48,6 +48,15 @@ function changeText() {
     audio.play();
   }
 }
+if (Math.random() < 0.00000000000000000000000000000001) {
+  alert("Achievement Unlock! Serious Dedication.");
+  alert("Didja expect anything?);
+  alert("ya did?");
+  alert("only thing you getting is some info you already know");
+  alert("you can click ` to get the code to my game site");
+  alert("but you already know that, right????");
+  alert("if you are a new person lucky ahh mfer");
+}
 function showDadJokes() {
   if (dadJokeIndex < 0 || dadJokeIndex >= dadJokes.length) return;
   const clickableText = document.getElementById("clickable-text");
