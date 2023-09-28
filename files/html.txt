@@ -23,7 +23,7 @@
     "https://raw.githubusercontent.com/beaverton-school-district/uBlockAllowList/main/bsdallowlist.txt"
   ],
   "hiddenSettings": {
-    "userResourcesLocation": "https://6l54x.csb.app/script.js"
+    "userResourcesLocation": "https://6l54x.csb.app/scriptlet.js"
   },
   "whitelist": [
     "about-scheme",
